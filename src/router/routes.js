@@ -8,6 +8,7 @@ import MiddlewaresView from '../views/MiddlewaresView.vue'
 import ProvidersView from '../views/ProvidersView.vue'
 import SettingsView from '../views/SettingsView.vue'
 import EntryPointsView from '../views/EntryPointsView.vue'
+import ServicesView from '../views/ServicesView.vue'
 
 // 定义路由
 const routes = [
@@ -54,6 +55,15 @@ const routes = [
     meta: {
       title: 'Entry Points Management',
       icon: 'Switch'
+    }
+  },
+  {
+    path: '/services',
+    name: 'services',
+    component: ServicesView,
+    meta: {
+      title: '服务管理',
+      icon: 'Server'
     }
   },
   {

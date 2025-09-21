@@ -41,6 +41,10 @@
           <el-icon><Switch /></el-icon>
           <span>Entry Points</span>
         </el-menu-item>
+        <el-menu-item index="/services">
+          <el-icon><Server /></el-icon>
+          <span>Services</span>
+        </el-menu-item>
         <el-menu-item index="/settings">
           <el-icon><Setting /></el-icon>
           <span>Settings</span>
@@ -101,13 +105,14 @@ export default {
     // 计算当前页面标题
     const currentPageTitle = computed(() => {
       const titleMap = {
-      '/': 'Dashboard',
-      '/routers': 'Routes Management',
-      '/middlewares': 'Middlewares Management',
-      '/providers': 'Providers Management',
-      '/entry-points': 'Entry Points Management',
-      '/settings': 'Settings'
-    }
+        '/': 'Dashboard',
+        '/routers': 'Routes Management',
+        '/middlewares': 'Middlewares Management',
+        '/providers': 'Providers Management',
+        '/entry-points': 'Entry Points Management',
+        '/services': '服务管理',
+        '/settings': 'Settings'
+      }
       return titleMap[route.path] || 'Traefik Admin'
     })
     
