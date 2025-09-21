@@ -45,6 +45,10 @@
           <el-icon><Server /></el-icon>
           <span>Services</span>
         </el-menu-item>
+        <el-menu-item index="/sockets">
+          <el-icon><Link /></el-icon>
+          <span>Socket5</span>
+        </el-menu-item>
         <el-menu-item index="/settings">
           <el-icon><Setting /></el-icon>
           <span>Settings</span>
@@ -111,6 +115,7 @@ export default {
         '/providers': 'Providers Management',
         '/entry-points': 'Entry Points Management',
         '/services': '服务管理',
+        '/sockets': 'Socket5 管理',
         '/settings': 'Settings'
       }
       return titleMap[route.path] || 'Traefik Admin'

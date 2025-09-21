@@ -149,7 +149,7 @@
       </el-form>
       <template #footer>
         <span class="dialog-footer">
-          <el-button @click="dialogVisible = false">Cancel</el-button>
+          <el-button @click="closeDialog">Cancel</el-button>
           <el-button type="primary" @click="saveRouter">Save</el-button>
         </span>
       </template>
@@ -173,6 +173,7 @@ export default {
     const dialogVisible = ref(false)
     const dialogTitle = ref('Add New Route')
     const editingRouterId = ref(null)
+    const routerFormRef = ref(null)
     
     // 路由列表数据
     const routers = ref([
@@ -333,10 +334,14 @@ export default {
     // 保存路由
     const saveRouter = async () => {
       // 验证表单
-      const routerFormRef = document.querySelector('.el-form')
-      const isValid = routerFormRef.validate()
+      if (!routerFormRef.value) {
+        ElMessage.error('Form reference not initialized')
+        return
+      }
       
-      if (!isValid) {
+      try {
+        await routerFormRef.value.validate()
+      } catch (error) {
         return
       }
       
@@ -407,10 +412,14 @@ export default {
         status: 'enabled'
       })
       
-      const routerFormRef = document.querySelector('.el-form')
-      if (routerFormRef) {
-        routerFormRef.resetFields()
+      if (routerFormRef.value) {
+        routerFormRef.value.resetFields()
       }
+    }
+    
+    // 关闭对话框
+    const closeDialog = () => {
+      dialogVisible.value = false
     }
     
     // 处理分页大小变化
@@ -442,6 +451,7 @@ export default {
       saveRouter,
       deleteRouter,
       resetForm,
+      closeDialog,
       handleSizeChange,
       handleCurrentChange
     }

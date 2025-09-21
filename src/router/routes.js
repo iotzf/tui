@@ -9,6 +9,7 @@ import ProvidersView from '../views/ProvidersView.vue'
 import SettingsView from '../views/SettingsView.vue'
 import EntryPointsView from '../views/EntryPointsView.vue'
 import ServicesView from '../views/ServicesView.vue'
+import SocketsView from '../views/SocketsView.vue'
 
 // 定义路由
 const routes = [
@@ -64,6 +65,15 @@ const routes = [
     meta: {
       title: '服务管理',
       icon: 'Server'
+    }
+  },
+  {
+    path: '/sockets',
+    name: 'sockets',
+    component: SocketsView,
+    meta: {
+      title: 'Socket5 管理',
+      icon: 'Link'
     }
   },
   {

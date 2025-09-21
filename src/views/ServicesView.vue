@@ -36,9 +36,12 @@
         <el-table-column prop="url" label="目标URL" v-if="showUrlColumn" />
         <el-table-column prop="loadBalancer.servers" label="后端服务器" v-if="showLoadBalancerColumn">
           <template #default="scope">
-            <el-tag type="info" v-for="server in scope.row.loadBalancer.servers" :key="server.url" style="margin-right: 5px">
-              {{ server.url }}
-            </el-tag>
+            <template v-if="scope.row.loadBalancer && scope.row.loadBalancer.servers && scope.row.loadBalancer.servers.length > 0">
+              <el-tag type="info" v-for="server in scope.row.loadBalancer.servers" :key="server.url" style="margin-right: 5px">
+                {{ server.url }}
+              </el-tag>
+            </template>
+            <span v-else>-</span>
           </template>
         </el-table-column>
         <el-table-column prop="usedByRouters" label="使用路由数" width="120" />
