@@ -119,7 +119,7 @@
       </el-form>
       <template #footer>
         <span class="dialog-footer">
-          <el-button @click="dialogVisible = false">取消</el-button>
+          <el-button @click="closeDialog">取消</el-button>
           <el-button type="primary" @click="saveEntryPoint">保存</el-button>
         </span>
       </template>
@@ -154,6 +154,8 @@ export default {
     const dialogVisible = ref(false)
     const dialogTitle = ref('新增入口点')
     const editingEntryPointId = ref(null)
+    // 表单引用
+    const entryPointFormRef = ref(null)
     
     // 入口点列表数据
     const entryPoints = ref([
@@ -400,10 +402,14 @@ export default {
         status: 'enabled'
       })
       
-      const entryPointFormRef = document.querySelector('.el-form')
-      if (entryPointFormRef) {
-        entryPointFormRef.resetFields()
+      if (entryPointFormRef.value) {
+        entryPointFormRef.value.resetFields()
       }
+    }
+    
+    // 关闭对话框
+    const closeDialog = () => {
+      dialogVisible.value = false
     }
     
     // 处理分页大小变化
@@ -426,6 +432,7 @@ export default {
       dialogTitle,
       entryPoints,
       entryPointForm,
+      entryPointFormRef,
       formRules,
       filteredEntryPoints,
       showAddDialog,
@@ -434,6 +441,7 @@ export default {
       deleteEntryPoint,
       updateTlsStatus,
       resetForm,
+      closeDialog,
       handleSizeChange,
       handleCurrentChange
     }
