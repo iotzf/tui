@@ -104,7 +104,7 @@
         label-width="100px"
       >
         <el-form-item label="名称" prop="name">
-          <el-input v-model="entryPointForm.name" placeholder="输入入口点名称" :disabled="editingEntryPointId !== null" />
+          <el-input v-model="entryPointForm.name" placeholder="输入入口点名称" :disabled="isEditing" />
         </el-form-item>
         <el-form-item label="协议" prop="protocol">
           <el-select v-model="entryPointForm.protocol" placeholder="选择协议">
@@ -162,6 +162,7 @@ export default {
     const dialogVisible = ref(false)
     const dialogTitle = ref('新增入口点')
     const editingEntryPointId = ref(null)
+    const isEditing = computed(() => editingEntryPointId.value !== null)
     // 表单引用
     const entryPointFormRef = ref(null)
     
@@ -213,19 +214,19 @@ export default {
     // 表单验证规则
     const formRules = {
       name: [
-        { required: true, message: '请输入入口点名称', trigger: 'blur' },
         {
+          required: !isEditing.value,
+          message: '请输入入口点名称',
+          trigger: 'blur'
+        },
+        {
+          required: !isEditing.value,
           validator: (rule, value, callback) => {
-            if (editingEntryPointId.value) {
-              const duplicate = entryPoints.value.some(
-                ep => ep.name === value && ep.id !== editingEntryPointId.value
-              )
-              if (duplicate) {
-                callback(new Error('入口点名称已存在'))
-              } else {
-                callback()
-              }
+            if (isEditing.value) {
+              // 编辑模式下，跳过名称验证
+              callback();
             } else {
+              // 新增模式下，检查名称唯一性
               const duplicate = entryPoints.value.some(ep => ep.name === value)
               if (duplicate) {
                 callback(new Error('入口点名称已存在'))
@@ -289,13 +290,14 @@ export default {
       editingEntryPointId.value = null
       resetForm()
       dialogVisible.value = true
+      console.log('showAddDialog', editingEntryPointId.value)
     }
     
     // 显示编辑对话框
     const showEditDialog = (entryPoint) => {
       dialogTitle.value = '编辑入口点'
       editingEntryPointId.value = entryPoint.id
-      
+      console.log('showEditDialog', editingEntryPointId.value)
       // 复制入口点数据到表单
       Object.assign(entryPointForm, {
         name: entryPoint.name,
@@ -311,8 +313,7 @@ export default {
     // 保存入口点
     const saveEntryPoint = async () => {
       // 验证表单
-      const entryPointFormRef = document.querySelector('.el-form')
-      const isValid = entryPointFormRef.validate()
+      const isValid = await entryPointFormRef.value.validate()
       
       if (!isValid) {
         return
@@ -443,6 +444,8 @@ export default {
       entryPointFormRef,
       formRules,
       filteredEntryPoints,
+      editingEntryPointId,
+      isEditing,
       showAddDialog,
       showEditDialog,
       saveEntryPoint,
