@@ -20,10 +20,10 @@
           <el-row :gutter="20">
             <el-col :span="6">
               <el-card class="stat-card">
-                <div class="stat-icon">
-                  <el-icon><Menu /></el-icon>
-                </div>
                 <div class="stat-content">
+                  <div class="stat-icon">
+                    <el-icon><Menu /></el-icon>
+                  </div>
                   <div class="stat-number">{{ stats.routers }}</div>
                   <div class="stat-label">Routers</div>
                 </div>
@@ -31,10 +31,10 @@
             </el-col>
             <el-col :span="6">
               <el-card class="stat-card">
-                <div class="stat-icon">
-                  <el-icon><Filter /></el-icon>
-                </div>
                 <div class="stat-content">
+                  <div class="stat-icon">
+                    <el-icon><Filter /></el-icon>
+                  </div>
                   <div class="stat-number">{{ stats.middlewares }}</div>
                   <div class="stat-label">Middlewares</div>
                 </div>
@@ -42,10 +42,10 @@
             </el-col>
             <el-col :span="6">
               <el-card class="stat-card">
-                <div class="stat-icon">
-                  <el-icon><Layers /></el-icon>
-                </div>
                 <div class="stat-content">
+                  <div class="stat-icon">
+                    <el-icon><Box /></el-icon>
+                  </div>
                   <div class="stat-number">{{ stats.providers }}</div>
                   <div class="stat-label">Providers</div>
                 </div>
@@ -53,10 +53,10 @@
             </el-col>
             <el-col :span="6">
               <el-card class="stat-card">
-                <div class="stat-icon">
-                  <el-icon><Check /></el-icon>
-                </div>
                 <div class="stat-content">
+                  <div class="stat-icon">
+                    <el-icon><Check /></el-icon>
+                  </div>
                   <div class="stat-number">{{ stats.services }}</div>
                   <div class="stat-label">Services</div>
                 </div>
@@ -198,8 +198,8 @@ export default {
 .stat-card {
   display: flex;
   align-items: center;
-  padding: 15px;
-  height: 100px;
+  padding: 15px 20px;
+  height: 85px;
   background: white;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
@@ -208,17 +208,31 @@ export default {
   font-size: 32px;
   color: #2563EB;
   margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: 100%;
+}
+
+.stat-content {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+  padding: 5px 0;
 }
 
 .stat-number {
   font-size: 24px;
   font-weight: bold;
   color: #1F2937;
+  margin-right: 10px;
 }
 
 .stat-label {
   color: #6B7280;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .dashboard-actions {
