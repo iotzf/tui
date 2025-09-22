@@ -1,6 +1,3 @@
-// 定义应用的路由
-import { createRouter, createWebHistory } from 'vue-router'
-
 // 导入组件
 import HomeView from '../views/HomeView.vue'
 import RoutersView from '../views/RoutersView.vue'
