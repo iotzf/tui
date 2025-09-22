@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import './style.css'
+import './style/viewStyle.css'
 import App from './App.vue'
 
 // 导入Element Plus和样式

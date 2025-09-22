@@ -379,22 +379,6 @@ export default {
   padding: 20px;
 }
 
-.page-header {
-  margin-bottom: 20px;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-}
-
-.header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.header-content h1 {
-  margin: 0;
-  color: #2563EB;
-}
-
 .settings-card {
   margin-bottom: 20px;
 }
