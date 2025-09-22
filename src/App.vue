@@ -38,11 +38,11 @@
           <span>Middlewares</span>
         </el-menu-item>
         <el-menu-item index="/services">
-          <el-icon><Server /></el-icon>
+          <el-icon><Service /></el-icon>
           <span>Services</span>
         </el-menu-item>
         <el-menu-item index="/providers">
-          <el-icon><Layers /></el-icon>
+          <el-icon><Box /></el-icon>
           <span>Providers</span>
         </el-menu-item>
         <el-menu-item index="/sockets">
@@ -50,7 +50,7 @@
           <span>Socket5</span>
         </el-menu-item>
         <el-menu-item index="/firewall-rules">
-          <el-icon><ShieldCheck /></el-icon>
+          <el-icon><ChromeFilled /></el-icon>
           <span>防火墙规则</span>
         </el-menu-item>
         <el-menu-item index="/settings">
