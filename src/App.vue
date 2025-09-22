@@ -25,6 +25,10 @@
           <el-icon><HomeFilled /></el-icon>
           <span>Dashboard</span>
         </el-menu-item>
+        <el-menu-item index="/entry-points">
+          <el-icon><Switch /></el-icon>
+          <span>Entry Points</span>
+        </el-menu-item>
         <el-menu-item index="/routers">
           <el-icon><Menu /></el-icon>
           <span>Routes</span>
@@ -33,17 +37,13 @@
           <el-icon><Filter /></el-icon>
           <span>Middlewares</span>
         </el-menu-item>
-        <el-menu-item index="/providers">
-          <el-icon><Layers /></el-icon>
-          <span>Providers</span>
-        </el-menu-item>
-        <el-menu-item index="/entry-points">
-          <el-icon><Switch /></el-icon>
-          <span>Entry Points</span>
-        </el-menu-item>
         <el-menu-item index="/services">
           <el-icon><Server /></el-icon>
           <span>Services</span>
+        </el-menu-item>
+        <el-menu-item index="/providers">
+          <el-icon><Layers /></el-icon>
+          <span>Providers</span>
         </el-menu-item>
         <el-menu-item index="/sockets">
           <el-icon><Link /></el-icon>
