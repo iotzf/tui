@@ -10,6 +10,7 @@ import SettingsView from '../views/SettingsView.vue'
 import EntryPointsView from '../views/EntryPointsView.vue'
 import ServicesView from '../views/ServicesView.vue'
 import SocketsView from '../views/SocketsView.vue'
+import FirewallRulesView from '../views/FirewallRulesView.vue'
 
 // 定义路由
 const routes = [
@@ -20,6 +21,15 @@ const routes = [
     meta: {
       title: 'Dashboard',
       icon: 'HomeFilled'
+    }
+  },
+  {
+    path: '/firewall-rules',
+    name: 'firewallRules',
+    component: FirewallRulesView,
+    meta: {
+      title: '防火墙规则管理',
+      icon: 'ShieldCheck'
     }
   },
   {

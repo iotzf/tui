@@ -49,6 +49,10 @@
           <el-icon><Link /></el-icon>
           <span>Socket5</span>
         </el-menu-item>
+        <el-menu-item index="/firewall-rules">
+          <el-icon><ShieldCheck /></el-icon>
+          <span>防火墙规则</span>
+        </el-menu-item>
         <el-menu-item index="/settings">
           <el-icon><Setting /></el-icon>
           <span>Settings</span>

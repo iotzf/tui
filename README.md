@@ -33,3 +33,45 @@
    - 实现了数据的搜索、过滤和分页功能
    - 提供了详细的配置查看和编辑界面
 项目已经成功构建，可以通过 npm run dev 启动开发服务器查看效果。整个系统提供了完整的Traefik路由管理功能，界面美观，交互友好，代码结构清晰。
+
+
+## 防火墙配置
+
+Linux 防火墙是保护系统安全的重要组件，用于控制进出服务器的网络流量。以下是关于 Linux 防火墙的核心知识和常用操作：
+1. 常见防火墙工具
+firewalld：现代 Linux 发行版（如 CentOS 7+、Fedora、RHEL 7+）的默认防火墙管理工具，支持动态规则配置。
+ufw（Uncomplicated Firewall）：Ubuntu、Debian 等系统的简化防火墙工具，基于 iptables。
+iptables：传统的防火墙工具，功能强大但配置复杂，被 firewalld 和 ufw 封装。
+
+2. firewalld 常用操作
+
+```bash
+# 启动/停止/重启防火墙
+sudo systemctl start firewalld
+sudo systemctl stop firewalld
+sudo systemctl restart firewalld
+
+# 查看防火墙状态
+sudo firewall-cmd --state
+sudo systemctl status firewalld
+
+# 查看已开放端口
+sudo firewall-cmd --list-ports
+sudo firewall-cmd --list-services
+
+# 开放端口（临时生效，重启后失效）
+sudo firewall-cmd --add-port=80/tcp   # 开放80端口(TCP)
+sudo firewall-cmd --add-service=http  # 开放HTTP服务
+
+# 开放端口（永久生效）
+sudo firewall-cmd --add-port=443/tcp --permanent
+sudo firewall-cmd --add-service=https --permanent
+
+# 关闭端口
+sudo firewall-cmd --remove-port=80/tcp --permanent
+sudo firewall-cmd --remove-service=http --permanent
+
+# 重新加载规则（使永久配置生效）
+sudo firewall-cmd --reload
+
+```
