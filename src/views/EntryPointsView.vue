@@ -19,6 +19,14 @@
     
     <!-- Entry Points Table -->
     <el-card class="entry-points-table-card">
+      <!-- 提示信息：修改入口点需要重启代理网关 -->
+      <el-alert
+        type="warning"
+        description="修改入口点配置后，需要重启代理网关才能使配置生效。"
+        show-icon
+        style="margin-bottom: 15px"
+      ></el-alert>
+      
       <el-table
         :data="filteredEntryPoints"
         style="width: 100%"

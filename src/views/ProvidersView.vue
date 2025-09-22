@@ -165,6 +165,9 @@ export default {
     const editingProviderId = ref(null)
     const selectedProviderConfig = ref({})
     
+    // 表单引用
+    const providerFormRef = ref(null)
+    
     // 提供者列表数据
     const providers = ref([
       {
@@ -335,8 +338,9 @@ export default {
     // 保存提供者
     const saveProvider = async () => {
       // 验证表单
-      const providerFormRef = document.querySelector('.el-form')
-      const isValid = providerFormRef.validate()
+      if (!providerFormRef.value) return
+      
+      const isValid = await providerFormRef.value.validate()
       
       if (!isValid) {
         return
@@ -406,9 +410,8 @@ export default {
         status: 'active'
       })
       
-      const providerFormRef = document.querySelector('.el-form')
-      if (providerFormRef) {
-        providerFormRef.resetFields()
+      if (providerFormRef.value) {
+        providerFormRef.value.resetFields()
       }
     }
     

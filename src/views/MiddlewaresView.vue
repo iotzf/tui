@@ -154,6 +154,8 @@ export default {
     const currentPage = ref(1)
     const pageSize = ref(10)
     
+    // 表单引用
+    const middlewareFormRef = ref(null)
     // 对话框状态
     const dialogVisible = ref(false)
     const configDialogVisible = ref(false)
@@ -339,8 +341,9 @@ export default {
     // 保存中间件
     const saveMiddleware = async () => {
       // 验证表单
-      const middlewareFormRef = document.querySelector('.el-form')
-      const isValid = middlewareFormRef.validate()
+      if (!middlewareFormRef.value) return
+      
+      const isValid = await middlewareFormRef.value.validate()
       
       if (!isValid) {
         return
@@ -410,9 +413,8 @@ export default {
         config: ''
       })
       
-      const middlewareFormRef = document.querySelector('.el-form')
-      if (middlewareFormRef) {
-        middlewareFormRef.resetFields()
+      if (middlewareFormRef.value) {
+        middlewareFormRef.value.resetFields()
       }
     }
     

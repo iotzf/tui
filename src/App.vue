@@ -49,6 +49,7 @@
           <el-icon><Link /></el-icon>
           <span>Socket5</span>
         </el-menu-item>
+        <!-- 增加代理网关菜单 -->
         <el-menu-item index="/firewall-rules">
           <el-icon><ChromeFilled /></el-icon>
           <span>防火墙规则</span>
