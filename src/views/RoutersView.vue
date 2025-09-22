@@ -130,7 +130,20 @@
           </el-select>
         </el-form-item>
         <el-form-item label="Service" prop="service">
-          <el-input v-model="routerForm.service" placeholder="Enter service name" />
+          <!-- <el-input v-model="routerForm.service" placeholder="Enter service name" /> -->
+          <el-select
+            v-model="routerForm.service"
+            placeholder="Select service"
+            multiple
+            filterable
+          >
+            <el-option
+              v-for="service in availableServices"
+              :key="service"
+              :label="service"
+              :value="service"
+            />
+          </el-select>
         </el-form-item>
         <el-form-item label="Priority" prop="priority">
           <el-input-number
@@ -228,6 +241,13 @@ export default {
       'redirect-https',
       'basic-auth',
       'strip-prefix'
+    ])
+
+    const availableServices = ref([
+      'api-service',
+      'web-service',
+      'static-service',
+      'old-api-service'
     ])
     
     // 表单数据
@@ -444,6 +464,7 @@ export default {
       routerForm,
       formRules,
       availableMiddlewares,
+      availableServices,
       filteredRouters,
       paginatedRouters,
       showAddDialog,

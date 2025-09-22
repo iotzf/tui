@@ -4,7 +4,7 @@
     <el-aside :width="sidebarCollapsed ? 64 : 250" :class="['sidebar', { collapsed: sidebarCollapsed }]">
       <div class="sidebar-header">
         <div class="logo-container">
-          <svg width="40" height="40" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg width="40" height="40" viewBox="0 0 120 120" fill="none">
             <path d="M60 0L120 40V80L60 120L0 80V40L60 0Z" fill="#2563EB"/>
             <path d="M60 20L100 40V80L60 100L20 80V40L60 20Z" fill="#3B82F6"/>
             <path d="M60 40L80 50V90L60 100L40 90V50L60 40Z" fill="#93C5FD"/>
@@ -120,7 +120,8 @@ export default {
         '/entry-points': 'Entry Points Management',
         '/services': '服务管理',
         '/sockets': 'Socket5 管理',
-        '/settings': 'Settings'
+        '/settings': 'Settings',
+        '/firewall-rules': '本机防火墙规则'
       }
       return titleMap[route.path] || 'Traefik Admin'
     })

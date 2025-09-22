@@ -122,7 +122,7 @@
         <el-tab-pane label="About">
           <div class="about-content">
             <div class="about-logo">
-              <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
                 <path d="M60 0L120 40V80L60 120L0 80V40L60 0Z" fill="#2563EB"/>
                 <path d="M60 20L100 40V80L60 100L20 80V40L60 20Z" fill="#3B82F6"/>
                 <path d="M60 40L80 50V90L60 100L40 90V50L60 40Z" fill="#93C5FD"/>

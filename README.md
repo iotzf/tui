@@ -37,7 +37,7 @@
 
 ## 防火墙配置
 
-Linux 防火墙是保护系统安全的重要组件，用于控制进出服务器的网络流量。以下是关于 Linux 防火墙的核心知识和常用操作：
+Linux 防火墙是保护系统安全的重要组件，用于控制进出服务器的网络流量，后端使用firewalld命令操作系统的防火墙。以下是关于 Linux 防火墙的核心知识和常用操作：
 1. 常见防火墙工具
 firewalld：现代 Linux 发行版（如 CentOS 7+、Fedora、RHEL 7+）的默认防火墙管理工具，支持动态规则配置。
 ufw（Uncomplicated Firewall）：Ubuntu、Debian 等系统的简化防火墙工具，基于 iptables。
