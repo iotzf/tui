@@ -134,7 +134,6 @@
           <el-select
             v-model="routerForm.service"
             placeholder="Select service"
-            multiple
             filterable
           >
             <el-option
