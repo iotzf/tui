@@ -25,8 +25,8 @@
         border
         v-loading="loading"
       >
-        <el-table-column prop="name" label="Name" width="180" />
-        <el-table-column prop="entryPoints" label="Entry Points" width="180">
+        <el-table-column prop="name" label="Name" width="130" />
+        <el-table-column prop="entryPoints" label="Entry Points" width="130">
           <template #default="scope">
             <el-tag v-for="entry in scope.row.entryPoints" :key="entry" type="info" size="small" style="margin-right: 5px">
               {{ entry }}
@@ -34,14 +34,14 @@
           </template>
         </el-table-column>
         <el-table-column prop="rule" label="Rule" />
-        <el-table-column prop="middlewares" label="Middlewares" width="200">
+        <el-table-column prop="middlewares" label="Middlewares" width="130">
           <template #default="scope">
             <el-tag v-for="middleware in scope.row.middlewares" :key="middleware" type="primary" size="small" style="margin-right: 5px">
               {{ middleware }}
             </el-tag>
           </template>
         </el-table-column>
-        <el-table-column prop="service" label="Service" width="180" />
+        <el-table-column prop="service" label="Service" width="130" />
         <el-table-column prop="priority" label="Priority" width="100" />
         <el-table-column prop="status" label="Status" width="100">
           <template #default="scope">

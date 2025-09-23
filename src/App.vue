@@ -54,6 +54,10 @@
           <el-icon><ChromeFilled /></el-icon>
           <span>防火墙规则</span>
         </el-menu-item>
+        <el-menu-item index="/certificates">
+          <el-icon><Lock /></el-icon>
+          <span>HTTPS证书管理</span>
+        </el-menu-item>
         <el-menu-item index="/settings">
           <el-icon><Setting /></el-icon>
           <span>Settings</span>
@@ -122,7 +126,8 @@ export default {
         '/services': '服务管理',
         '/sockets': 'Socket5 管理',
         '/settings': 'Settings',
-        '/firewall-rules': '本机防火墙规则'
+        '/firewall-rules': '本机防火墙规则',
+        '/certificates': 'HTTPS证书管理'
       }
       return titleMap[route.path] || 'Traefik Admin'
     })

@@ -8,6 +8,7 @@ import EntryPointsView from '../views/EntryPointsView.vue'
 import ServicesView from '../views/ServicesView.vue'
 import SocketsView from '../views/SocketsView.vue'
 import FirewallRulesView from '../views/FirewallRulesView.vue'
+import CertificatesView from '../views/CertificatesView.vue'
 
 // 定义路由
 const routes = [
@@ -81,6 +82,15 @@ const routes = [
     meta: {
       title: 'Socket5 管理',
       icon: 'Link'
+    }
+  },
+  {
+    path: '/certificates',
+    name: 'certificates',
+    component: CertificatesView,
+    meta: {
+      title: 'HTTPS证书管理',
+      icon: 'Lock'
     }
   },
   {
