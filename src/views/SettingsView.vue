@@ -129,6 +129,7 @@
               </svg>
             </div>
             <h2>Traefik Router Management</h2>
+            <h2>增加一键配置</h2>
             <p class="version">Version 1.0.0</p>
             <p class="description">
               A modern web interface for managing Traefik reverse proxy routes, middlewares, and providers.
